@@ -1,11 +1,9 @@
-import { useState } from "react";
 import GlobalStyle from "../styles";
 import useSWR from "swr";
 import Layout from "@/components/Layout/Layout";
-
-
 const fetcher = (...args) => fetch(...args).then(res => res.json())
 const URL = 'https://example-apis.vercel.app/api/art'
+
 
 
 
@@ -19,9 +17,9 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <GlobalStyle />
-
       <Component {...pageProps} pieces={pieces} />
       <Layout />
+
     </>
   );
 }
