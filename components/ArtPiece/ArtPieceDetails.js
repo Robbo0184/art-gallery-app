@@ -1,10 +1,10 @@
-import ArtPiecePreview from "../ArtPiecePreview/ArtPiecePreview";
-
-export function ArtPieceDetails({ image, title, artist, year, genre }) {
+export function ArtPieceDetails({ slug, image, name, artist, year, genre }) {
   return (
     <div>
+      {" "}
+      {slug} {year} {genre}
       <img width={400} height={400} src={image} alt="artpiece" />
-      <span>{`Famous Painting ${title} by Famous Artist: ${artist}`}</span>
+      <span>{`Famous Painting ${name} by Famous Artist: ${artist}`}</span>
       <div className="section--comments"></div>
       <div className="section--comment">
         {" "}
