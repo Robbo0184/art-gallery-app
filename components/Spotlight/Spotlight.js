@@ -1,9 +1,9 @@
 import ArtPiecePreview from "../ArtPiecePreview/ArtPiecePreview";
 
-export default function Spotlight({ image, artist }) {
+export default function Spotlight({ image, artist, slug }) {
   return (
     <div>
-      <ArtPiecePreview image={image} artist={artist} />
+      <ArtPiecePreview slug={slug} image={image} artist={artist} />
     </div>
   );
 }
