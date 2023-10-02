@@ -1,4 +1,5 @@
 import FavouriteButton from "../FavouriteButton/FavouriteButton";
+import CommentForm from "../CommentForm/CommentForm";
 export function ArtPieceDetails({
   isFavourite,
   onToggleFavourite,
@@ -7,6 +8,7 @@ export function ArtPieceDetails({
   name,
   artist,
   year,
+  onSubmitComment,
   genre,
 }) {
   return (
@@ -17,9 +19,7 @@ export function ArtPieceDetails({
       <div className="section--comments"></div>
       <div className="section--comment">
         {" "}
-        <label>Add comment:</label>
-        <input type="text-box"></input>
-        <button>Send</button>
+        <CommentForm onSubmitComment={onSubmitComment} />
         <FavouriteButton
           slug={slug}
           isFavourite={isFavourite}

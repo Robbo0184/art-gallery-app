@@ -17,7 +17,26 @@ export default function App({ Component, pageProps }) {
   //   defaultValue: [],
   // });
   const favouritedPieces = artPiecesInfo?.filter((piece) => piece.isFavourite);
-  console.log("fav pieces", favouritedPieces);
+
+  function handleSubmitComment(slug, commentText) {
+    setArtPiecesInfo((artPiecesInfo) => {
+      const updatedArtPieces = artPiecesInfo.map((piece) => {
+        if (piece.slug === slug) {
+          // Add the new comment to the piece's comments array
+          const updatedComments = [
+            ...(piece.comments || []),
+            {
+              text: commentText,
+              date: new Date().toLocaleString(), // You can format the date as needed
+            },
+          ];
+          return { ...piece, comments: updatedComments };
+        }
+        return piece;
+      });
+      return updatedArtPieces;
+    });
+  }
 
   useEffect(() => {
     if (pieces) setArtPiecesInfo(pieces);
@@ -49,6 +68,7 @@ export default function App({ Component, pageProps }) {
         onToggleFavourite={handleToggleFavourite}
         pieces={artPiecesInfo}
         favouritedPieces={favouritedPieces}
+        onSubmitComment={handleSubmitComment}
       />
       <Layout />
     </>
