@@ -25,7 +25,12 @@ export default function ArtPiecePreview({ slug, image, title, artist, isFavourit
             alt={`artpiece is called ${title}`}
           />
           <p>{artist}</p>
-          <FavouriteButton slug={slug} isFavourite={isFavourite} onToggleFavourite={onToggleFavourite}/>
+
+          <FavouriteButton
+            isFavourite={isFavourite}
+            onToggleFavourite={onToggleFavourite}
+          />
+
         </StyledArtPiece>
       </Link>
     </>

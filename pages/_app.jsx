@@ -3,28 +3,39 @@ import useSWR from "swr";
 import Layout from "@/components/Layout/Layout";
 import { useEffect, useState } from "react";
 
+import useLocalStorageState from "use-local-storage-state";
+
+
+
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 const URL = "https://example-apis.vercel.app/api/art";
 
 export default function App({ Component, pageProps }) {
   const { data: pieces, error, isLoading } = useSWR(URL, fetcher);
   const [artPiecesInfo, setArtPiecesInfo] = useState();
+  const [favourites, setFavourites] = useLocalStorageState("favourites", {
+    defaultValue: undefined,
+  });
 
-  useEffect(()=> {
-    if(pieces) setArtPiecesInfo(pieces)
-  },[pieces])
+  useEffect(() => {
+    if (pieces) setArtPiecesInfo(pieces);
+  }, [pieces]);
+
+
+
 
   function handleToggleFavourite(slug) {
     setArtPiecesInfo((artPiecesInfo) => {
-      const info = artPiecesInfo.find((info) => info.slug === slug);
-      if (info) {
+      const piece = artPiecesInfo.find((piece) => piece.slug === slug);
+      if (piece) {
         //art piece is in the state- toggle isFavourite
-        return artPiecesInfo.map((info) =>
-          info.slug === slug ? { ...info, isFavourite: !info.isFavorite } : info
+        return artPiecesInfo.map((piece) =>
+          piece.slug === slug
+            ? { ...piece, isFavourite: !piece.isFavourite }
+            : piece
         );
       }
     });
-    return [...artPiecesInfo, { slug, isfFavourite: true }];
   }
 
   if (!artPiecesInfo) return;
@@ -35,11 +46,12 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <GlobalStyle />
-
       <Component
         {...pageProps}
         onToggleFavourite={handleToggleFavourite}
         pieces={artPiecesInfo}
+
+
 
       />
       <Layout />
