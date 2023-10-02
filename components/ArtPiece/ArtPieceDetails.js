@@ -13,7 +13,7 @@ export function ArtPieceDetails({ slug, image, name, artist, year, genre }) {
         <label>Add comment:</label>
         <input type="text-box"></input>
         <button>Send</button>
-        <FavouriteButton/>
+        <FavouriteButton  isFavourite={isFavourite} onToggleFavorite={onToggleFavorite}/>
       </div>
     </div>
   );
