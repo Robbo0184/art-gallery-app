@@ -12,7 +12,7 @@ const StyledArtPiece = styled.div`
   border-radius: 20px;
 `;
 
-export default function ArtPiecePreview({ slug, image, title, artist }) {
+export default function ArtPiecePreview({ slug, image, title, artist, isFavourite, onToggleFavourite }) {
   return (
     <>
       <Link href={`/art-pieces/${slug}`}>
@@ -25,7 +25,7 @@ export default function ArtPiecePreview({ slug, image, title, artist }) {
             alt={`artpiece is called ${title}`}
           />
           <p>{artist}</p>
-          <FavouriteButton/>
+          <FavouriteButton slug={slug} isFavourite={isFavourite} onToggleFavourite={onToggleFavourite}/>
         </StyledArtPiece>
       </Link>
     </>

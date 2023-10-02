@@ -1,10 +1,9 @@
 import ArtPiecePreview from "../ArtPiecePreview/ArtPiecePreview";
-import FavouriteButton from "../FavouriteButton/FavouriteButton";
 
-export default function Spotlight({ image, artist, slug }) {
+export default function Spotlight({ title, image, artist, slug, isFavourite, onToggleFavourite }) {
   return (
     <div>
-      <ArtPiecePreview slug={slug} image={image} artist={artist} />
+      <ArtPiecePreview title={title} slug={slug} image={image} artist={artist} isFavourite={isFavourite} onToggleFavourite={onToggleFavourite} />
       
     </div>
   );
