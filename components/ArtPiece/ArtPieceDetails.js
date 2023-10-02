@@ -9,10 +9,9 @@ export function ArtPieceDetails({
   year,
   genre,
 }) {
-  console.log(genre);
   return (
     <div>
-      {year} {genre} {slug}
+      {year} {genre}
       <img width={400} height={400} src={image} alt="artpiece" />
       <span>{`Famous Painting ${name} by Famous Artist: ${artist}`}</span>
       <div className="section--comments"></div>
@@ -21,12 +20,11 @@ export function ArtPieceDetails({
         <label>Add comment:</label>
         <input type="text-box"></input>
         <button>Send</button>
-
         <FavouriteButton
+          slug={slug}
           isFavourite={isFavourite}
           onToggleFavourite={onToggleFavourite}
         />
-
       </div>
     </div>
   );
