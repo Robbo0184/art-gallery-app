@@ -22,20 +22,25 @@ export default function App({ Component, pageProps }) {
   }
 
   const { data: pieces, error, isLoading } = useSWR(URL, fetcher);
+  const [artPiecesInfo, setArtPiecesInfo] = useState([])
+ 
 
   if (!pieces) return;
   if (error) return <div>failed to load</div>;
   if (isLoading) return <div>loading...</div>;
+ 
 
   return (
     <>
       <GlobalStyle />
+
       <Component
         {...pageProps}
         onToggleFavourite={handleToggleFavourite}
         pieces={pieces}
+        artPiecesInfo={artPiecesInfo}
       />
-      <Layout />
+  <Layout />
     </>
   );
 }
