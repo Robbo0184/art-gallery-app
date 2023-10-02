@@ -1,19 +1,20 @@
-import styled from "styled-components";
+import Link from "next/link";
+// import styled from "styled-components";
 
-const StyledLink = styled.a`
-  background-color: none;
-  text-decoration: none;
-  &:active {
-    color: red;
-  }
-`;
+// const StyledLink = styled.Link`
+//   background-color: none;
+//   text-decoration: none;
+//   &:active {
+//     color: red;
+//   }
+// `;
 
 export default function Navigation() {
   return (
     <>
-      <StyledLink href="/">Spotlight</StyledLink>
-      <StyledLink href="/art-pieces">Art Pieces</StyledLink>
-      <StyledLink href="/">Favourites</StyledLink>
+      <Link href="/">Spotlight</Link>
+      <Link href="/art-pieces">Art Pieces</Link>
+      <Link href="/favourites">Favourites</Link>
     </>
   );
 }
