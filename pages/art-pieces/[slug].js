@@ -7,6 +7,7 @@ export default function ArtPieceDetailsPage({ pieces, onToggleFavourite }) {
   const { slug } = router.query;
 
   const piece = pieces.find((piece) => piece.slug === slug);
+  const favourites = [];
   const isFavourite = favourites.includes(piece.slug);
 
   return (
