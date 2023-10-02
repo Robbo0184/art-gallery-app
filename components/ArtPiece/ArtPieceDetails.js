@@ -1,4 +1,5 @@
 import Link from "next/link";
+import FavouriteButton from "../FavouriteButton/FavouriteButton";
 export function ArtPieceDetails({ slug, image, name, artist, year, genre }) {
   console.log(genre);
   return (
@@ -12,6 +13,7 @@ export function ArtPieceDetails({ slug, image, name, artist, year, genre }) {
         <label>Add comment:</label>
         <input type="text-box"></input>
         <button>Send</button>
+        <FavouriteButton/>
       </div>
     </div>
   );
