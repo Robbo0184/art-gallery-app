@@ -21,10 +21,12 @@ export function ArtPieceDetails({
         <label>Add comment:</label>
         <input type="text-box"></input>
         <button>Send</button>
+
         <FavouriteButton
           isFavourite={isFavourite}
           onToggleFavourite={onToggleFavourite}
         />
+
       </div>
     </div>
   );

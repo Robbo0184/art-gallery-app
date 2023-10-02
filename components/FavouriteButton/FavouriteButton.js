@@ -1,5 +1,6 @@
 import { HeartIcon } from "@/public/assets/HeartIcon";
 
+
 export default function FavouriteButton({ isFavourite, onToggleFavourite }) {
   return (
     <button onClick={onToggleFavourite}>
@@ -7,3 +8,5 @@ export default function FavouriteButton({ isFavourite, onToggleFavourite }) {
     </button>
   );
 }
+
+

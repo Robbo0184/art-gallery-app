@@ -2,7 +2,8 @@ import Spotlight from "@/components/Spotlight/Spotlight";
 
 export default function SpotlightPage({ pieces }) {
   const randomArt = pieces[Math.floor(Math.random() * pieces.length)];
-  console.log(pieces);
+  console.log("Random art", randomArt);
+  console.log("pieces", pieces);
 
   return (
     <div>

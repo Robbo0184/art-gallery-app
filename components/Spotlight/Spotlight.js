@@ -1,5 +1,6 @@
 import ArtPiecePreview from "../ArtPiecePreview/ArtPiecePreview";
 
+
 export default function Spotlight({
   image,
   artist,
@@ -14,8 +15,7 @@ export default function Spotlight({
         onToggleFavourite={onToggleFavourite}
         slug={slug}
         image={image}
-        artist={artist}
-      />
+        artist={artist} />
     </div>
-  );
+  )
 }
