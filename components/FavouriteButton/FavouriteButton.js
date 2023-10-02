@@ -1,5 +1,9 @@
-import heartIcon from "../../public/assets/heart.svg";
-import Image from "next/image";
+import { HeartIcon } from "@/public/assets/HeartIcon";
+
 export default function FavouriteButton({ isFavourite, onToggleFavourite }) {
-  return <Image src={heartIcon} alt="favourite heart icon"></Image>;
+  return (
+    <button onClick={onToggleFavourite}>
+      <HeartIcon fill={isFavourite ? "red" : "grey"} />
+    </button>
+  );
 }
