@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styled from "styled-components";
+import FavouriteButton from "../FavouriteButton/FavouriteButton";
 
 const StyledArtPiece = styled.div`
   width: 80%;
@@ -24,6 +25,7 @@ export default function ArtPiecePreview({ slug, image, title, artist }) {
             alt={`artpiece is called ${title}`}
           />
           <p>{artist}</p>
+          <FavouriteButton/>
         </StyledArtPiece>
       </Link>
     </>
