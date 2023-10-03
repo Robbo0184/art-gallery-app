@@ -1,13 +1,4 @@
 import Link from "next/link";
-// import styled from "styled-components";
-
-// const StyledLink = styled.Link`
-//   background-color: none;
-//   text-decoration: none;
-//   &:active {
-//     color: red;
-//   }
-// `;
 
 export default function Navigation() {
   return (

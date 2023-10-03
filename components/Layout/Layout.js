@@ -9,7 +9,7 @@ const StyledLayout = styled.div`
   position: fixed;
   bottom: 20px;
   background-color: #dbff33;
-  font-family: monospace;
+  font-family: tahoma;
   font-size: 1rem;
 `;
 

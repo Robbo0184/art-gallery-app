@@ -9,10 +9,9 @@ const StyledFormDiv = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 3rem;
+  padding-bottom: 10rem;
+  gap: 1rem;
 `;
-
-
-
 
 export function ArtPieceDetails({
   isFavourite,
@@ -27,23 +26,20 @@ export function ArtPieceDetails({
   genre,
 }) {
   return (
-
-    <div>
-      {year} {genre}
-      <img width={400} height={400} src={image} alt="artpiece" />
-      <span>{`Famous Painting ${name} by Famous Artist: ${artist}`}</span>
-      <div className="section--comments">
-        <h2>Comments</h2>
-        <Comments comments={comments} />
-      </div>
-      <div className="section--comment">
-        <CommentForm slug={slug} onSubmitComment={onSubmitComment} />
-        <FavouriteButton
-          slug={slug}
-          isFavourite={isFavourite}
-          onToggleFavourite={onToggleFavourite}
-        />
-      </div>
-    </div>
+    <StyledFormDiv>
+      <img width={500} height={500} src={image} alt="artpiece" />
+      <span>{`${name} by: ${artist}`}</span>
+      <p>Year:{year}</p>
+      <p>Genre: {genre}</p>
+      <h3>Comments</h3>
+      <Comments comments={comments} />
+      <CommentForm slug={slug} onSubmitComment={onSubmitComment} />
+      <FavouriteButton
+        slug={slug}
+        isFavourite={isFavourite}
+        onToggleFavourite={onToggleFavourite}
+      />
+    </StyledFormDiv>
   );
 }
+3;

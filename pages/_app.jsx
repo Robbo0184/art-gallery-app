@@ -2,34 +2,38 @@ import GlobalStyle from "../styles";
 import useSWR from "swr";
 import Layout from "@/components/Layout/Layout";
 import { useEffect, useState } from "react";
-
-// import useLocalStorageState from "use-local-storage-state";
+// import { useImmerLocalStorageState } from "@/lib/useImmerLocalStorageState";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
 const URL = "https://example-apis.vercel.app/api/art";
 
 export default function App({ Component, pageProps }) {
   const { data: pieces, error, isLoading } = useSWR(URL, fetcher);
+  // const [artPiecesInfo, updateArtPiecesInfo] = useImmerLocalStorageState(
+  //   "art-pieces-info",
+  //   { defaultValue: [] }
+  // );
 
   const [artPiecesInfo, setArtPiecesInfo] = useState();
 
-  // const [favourites, setFavourites] = useLocalStorageState("favourites", {
-  //   defaultValue: [],
-  // });
   const favouritedPieces = artPiecesInfo?.filter((piece) => piece.isFavourite);
 
   function handleSubmitComment(slug, commentText) {
+    if (!commentText.trim()) {
+      console.log(
+        "Comment text is empty or contains only whitespace. Comment not submitted."
+      );
+      return;
+    }
     console.log("Submitting comment:", slug, commentText);
     setArtPiecesInfo((artPiecesInfo) => {
       const updatedArtPieces = artPiecesInfo.map((piece) => {
-        
         if (piece.slug === slug) {
-          // Add the new comment to the piece's comments array
           const updatedComments = [
             ...(piece.comments || []),
             {
               text: commentText,
-              date: new Date().toLocaleString(), // You can format the date as needed
+              date: new Date().toLocaleString(),
             },
           ];
           return { ...piece, comments: updatedComments };
@@ -48,7 +52,6 @@ export default function App({ Component, pageProps }) {
     setArtPiecesInfo((artPiecesInfo) => {
       const piece = artPiecesInfo.find((piece) => piece.slug === slug);
       if (piece) {
-        //art piece is in the state- toggle isFavourite
         return artPiecesInfo.map((piece) =>
           piece.slug === slug
             ? { ...piece, isFavourite: !piece.isFavourite }
@@ -65,6 +68,7 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <GlobalStyle />
+      <h1>ART GALLERY</h1>
       <Component
         {...pageProps}
         onToggleFavourite={handleToggleFavourite}
@@ -76,14 +80,3 @@ export default function App({ Component, pageProps }) {
     </>
   );
 }
-
-// function handleAddFavourites(title) {
-//   setFavourites([
-//     {
-//       slug: pieces.slug,
-//       title: pieces.title,
-//       isFavourite: true,
-//     },
-//     ...favourites,
-//   ]);
-// }
