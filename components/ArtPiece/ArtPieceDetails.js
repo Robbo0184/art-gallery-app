@@ -36,19 +36,7 @@ export function ArtPieceDetails({
       <CommentForm onSubmitComment={onSubmitComment} />
       <div className="section--comment">
         <br></br>
-
-    <div>
-      {year} {genre}
-      <img width={400} height={400} src={image} alt="artpiece" />
-      <span>{`Famous Painting ${name} by Famous Artist: ${artist}`}</span>
-      <div className="section--comments">
-        <h2>Comments</h2>
-        <Comments comments={comments} />
-      </div>
-      <div className="section--comment">
-        <CommentForm slug={slug} onSubmitComment={onSubmitComment} />
-
-        <FavouriteButton
+       <FavouriteButton
           slug={slug}
           isFavourite={isFavourite}
           onToggleFavourite={onToggleFavourite}
