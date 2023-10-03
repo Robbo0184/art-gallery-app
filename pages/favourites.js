@@ -6,7 +6,7 @@ export default function FavouritesPage({
 }) {
   return (
     <ul>
-      {/* <h1>{favouritedPieces.length} piece(s) are liked.</h1> */}
+      <h1>{favouritedPieces.length} piece(s) are liked.</h1>
       <ArtPieces pieces={favouritedPieces} />
     </ul>
   );

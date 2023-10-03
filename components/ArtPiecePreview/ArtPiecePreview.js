@@ -5,7 +5,7 @@ import FavouriteButton from "../FavouriteButton/FavouriteButton";
 const StyledArtPiece = styled.div`
   width: 80%;
   background-color: gainsboro;
-  height: 350px;
+  height: 450px;
   display: relative;
   margin: 20px;
   padding: 20px;
@@ -26,14 +26,15 @@ export default function ArtPiecePreview({
         <Link href={`/art-pieces/${slug}`}>
           {title ? <h2>{title}</h2> : null}
           <img
-            width={200}
-            height={200}
+            width={250}
+            height={250}
             src={image}
             alt={`artpiece is called ${title}`}
           />
           <p>{artist}</p>
         </Link>
         <FavouriteButton
+          className="favourite-button"
           slug={slug}
           isFavourite={isFavourite}
           onToggleFavourite={onToggleFavourite}
