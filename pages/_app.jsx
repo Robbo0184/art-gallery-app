@@ -19,8 +19,10 @@ export default function App({ Component, pageProps }) {
   const favouritedPieces = artPiecesInfo?.filter((piece) => piece.isFavourite);
 
   function handleSubmitComment(slug, commentText) {
+    console.log("Submitting comment:", slug, commentText);
     setArtPiecesInfo((artPiecesInfo) => {
       const updatedArtPieces = artPiecesInfo.map((piece) => {
+        
         if (piece.slug === slug) {
           // Add the new comment to the piece's comments array
           const updatedComments = [
