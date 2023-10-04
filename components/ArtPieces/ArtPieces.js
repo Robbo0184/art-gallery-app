@@ -6,17 +6,21 @@ export const StyledLi = styled.li`
 export default function ArtPieces({
   onSubmitComment,
   pieces,
+  artPiecesInfo,
   onToggleFavourite,
 }) {
   return (
-    <ul>
+    <ul style={{ margin: "0 0 164px 0" }}>
       {pieces.map((piece) => {
+        const storedPiece = artPiecesInfo.find((obj) => {
+          return obj.piece_id === piece.slug;
+        });
         return (
           <StyledLi key={piece.slug}>
             <ArtPiecePreview
               colors={piece.colors.map((color) => color)}
               onSubmitComment={onSubmitComment}
-              isFavourite={piece.isFavourite}
+              isFavourite={storedPiece?.isFavourite}
               onToggleFavourite={onToggleFavourite}
               image={piece.imageSource}
               title={piece.name}

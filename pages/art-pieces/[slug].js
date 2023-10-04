@@ -6,14 +6,13 @@ export default function ArtPieceDetailsPage({
   onSubmitComment,
   pieces,
   onToggleFavourite,
-  comments,
+  artPiecesInfo,
 }) {
   const router = useRouter();
   const { slug } = router.query;
 
   const piece = pieces.find((piece) => piece.slug === slug);
-  const favourites = [];
-  const isFavourite = favourites.includes(piece.slug);
+  const isFavourite = artPiecesInfo.includes(piece.slug);
 
   return (
     <ArtPieceDetails
@@ -26,7 +25,7 @@ export default function ArtPieceDetailsPage({
       year={piece.year}
       genre={piece.genre}
       isFavourite={isFavourite}
-      comments={piece.comments}
+      artPiecesInfo={artPiecesInfo}
       colors={piece.colors}
     />
   );

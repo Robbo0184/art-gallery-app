@@ -13,16 +13,13 @@ const StyledFormDiv = styled.div`
   gap: 1rem;
 `;
 const StyledContainerDiv = styled.div`
-  display:flex;
-  gap:1rem;
-
-`
+  display: flex;
+  gap: 1rem;
+`;
 const StyledColourDiv = styled.div`
   width: 30px;
-  height: 30px
-
+  height: 30px;
 `;
-
 
 export function ArtPieceDetails({
   isFavourite,
@@ -32,22 +29,31 @@ export function ArtPieceDetails({
   name,
   artist,
   year,
-  comments,
+  artPiecesInfo,
   onSubmitComment,
   genre,
-  colors
+  colors,
 }) {
+  const comments = artPiecesInfo.find(
+    (piece) => piece.piece_id === slug
+  )?.comments;
   return (
     <StyledFormDiv>
       <img width={500} height={500} src={image} alt="artpiece" />
       <span>{`${name} by: ${artist}`}</span>
       <p>Year:{year}</p>
       <p>Genre: {genre}</p>
-      <h3>Comments</h3><StyledContainerDiv>
+      <h3>Comments</h3>
+      <StyledContainerDiv>
         {colors.map((color, index) => {
-          return <StyledColourDiv key={index} style={{ backgroundColor: color }}>
-          </StyledColourDiv>
-        })}</StyledContainerDiv>
+          return (
+            <StyledColourDiv
+              key={index}
+              style={{ backgroundColor: color }}
+            ></StyledColourDiv>
+          );
+        })}
+      </StyledContainerDiv>
       <Comments comments={comments} />
       <CommentForm slug={slug} onSubmitComment={onSubmitComment} />
       <FavouriteButton
