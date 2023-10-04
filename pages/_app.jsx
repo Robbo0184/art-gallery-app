@@ -16,15 +16,6 @@ export default function App({ Component, pageProps }) {
     "art-pieces-info",
     { defaultValue: [] }
   );
-
-  // const [artPiecesInfo, setArtPiecesInfo] = useImmerLocalStorageState(
-  //   "art-pieces-info",
-  //   { defaultValue: [] }
-  // );
-
-  // const [artPiecesInfo, setArtPiecesInfo] = useState();
-
-  console.log(pieces);
   const favouritedPieces = artPiecesInfo?.filter((piece) => piece.isFavourite);
 
   function handleSubmitComment(slug, commentText) {
