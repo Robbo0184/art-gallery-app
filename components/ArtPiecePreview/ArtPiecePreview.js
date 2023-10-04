@@ -3,7 +3,7 @@ import styled from "styled-components";
 import FavouriteButton from "../FavouriteButton/FavouriteButton";
 
 const StyledArtPiece = styled.div`
-  width: 80%;
+  width: 60%;
   background-color: #f2f0f0;
   height: 450px;
   display: relative;
@@ -12,6 +12,8 @@ const StyledArtPiece = styled.div`
   border-radius: 20px;
 `;
 
+
+
 export default function ArtPiecePreview({
   slug,
   image,
@@ -19,7 +21,7 @@ export default function ArtPiecePreview({
   artist,
   isFavourite,
   onToggleFavourite,
-  color,
+  colors,
 }) {
   return (
     <>
@@ -33,7 +35,8 @@ export default function ArtPiecePreview({
             alt={`artpiece is called ${title}`}
           />
           <p>{artist}</p>
-          <p>{color}</p>
+
+
         </Link>
         <FavouriteButton
           className="favourite-button"

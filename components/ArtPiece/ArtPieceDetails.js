@@ -12,6 +12,17 @@ const StyledFormDiv = styled.div`
   padding-bottom: 10rem;
   gap: 1rem;
 `;
+const StyledContainerDiv = styled.div`
+  display:flex;
+  gap:1rem;
+
+`
+const StyledColourDiv = styled.div`
+  width: 30px;
+  height: 30px
+
+`;
+
 
 export function ArtPieceDetails({
   isFavourite,
@@ -24,6 +35,7 @@ export function ArtPieceDetails({
   comments,
   onSubmitComment,
   genre,
+  colors
 }) {
   return (
     <StyledFormDiv>
@@ -31,7 +43,11 @@ export function ArtPieceDetails({
       <span>{`${name} by: ${artist}`}</span>
       <p>Year:{year}</p>
       <p>Genre: {genre}</p>
-      <h3>Comments</h3>
+      <h3>Comments</h3><StyledContainerDiv>
+        {colors.map((color, index) => {
+          return <StyledColourDiv key={index} style={{ backgroundColor: color }}>
+          </StyledColourDiv>
+        })}</StyledContainerDiv>
       <Comments comments={comments} />
       <CommentForm slug={slug} onSubmitComment={onSubmitComment} />
       <FavouriteButton

@@ -15,7 +15,7 @@ export default function App({ Component, pageProps }) {
   // );
 
   const [artPiecesInfo, setArtPiecesInfo] = useState();
-
+  console.log(pieces);
   const favouritedPieces = artPiecesInfo?.filter((piece) => piece.isFavourite);
 
   function handleSubmitComment(slug, commentText) {

@@ -7,6 +7,7 @@ export default function Spotlight({
   slug,
   onToggleFavourite,
   isFavourite,
+  colors
 }) {
   return (
     <div>
@@ -15,7 +16,8 @@ export default function Spotlight({
         onToggleFavourite={onToggleFavourite}
         slug={slug}
         image={image}
-        artist={artist} />
+        artist={artist}
+        colors={colors} />
     </div>
   )
 }
