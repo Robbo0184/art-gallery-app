@@ -9,7 +9,7 @@ const URL = "https://example-apis.vercel.app/api/art";
 
 export default function App({ Component, pageProps }) {
   const { data: pieces, error, isLoading } = useSWR(URL, fetcher);
-  // const [artPiecesInfo, updateArtPiecesInfo] = useImmerLocalStorageState(
+  // const [artPiecesInfo, setArtPiecesInfo] = useImmerLocalStorageState(
   //   "art-pieces-info",
   //   { defaultValue: [] }
   // );
