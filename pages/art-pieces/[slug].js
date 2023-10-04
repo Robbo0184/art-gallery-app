@@ -6,16 +6,16 @@ export default function ArtPieceDetailsPage({
   onSubmitComment,
   pieces,
   onToggleFavourite,
-  comments
+  comments,
 }) {
   const router = useRouter();
   const { slug } = router.query;
-  console.log("Logging pieces", pieces)
+  console.log("Logging pieces", pieces);
   console.log("Logging comments", comments);
   const piece = pieces.find((piece) => piece.slug === slug);
   const favourites = [];
   const isFavourite = favourites.includes(piece.slug);
-  
+
   return (
     <ArtPieceDetails
       slug={slug}
