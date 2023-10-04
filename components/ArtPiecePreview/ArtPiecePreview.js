@@ -19,6 +19,7 @@ export default function ArtPiecePreview({
   artist,
   isFavourite,
   onToggleFavourite,
+  color,
 }) {
   return (
     <>
@@ -32,6 +33,7 @@ export default function ArtPiecePreview({
             alt={`artpiece is called ${title}`}
           />
           <p>{artist}</p>
+          <p>{color}</p>
         </Link>
         <FavouriteButton
           className="favourite-button"
