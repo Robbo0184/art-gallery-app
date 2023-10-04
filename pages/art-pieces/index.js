@@ -1,4 +1,5 @@
 import ArtPieces from "@/components/ArtPieces/ArtPieces";
+
 export default function ArtPiecesPage({
   pieces,
   artPiecesInfo,
@@ -11,6 +12,7 @@ export default function ArtPiecesPage({
       artPiecesInfo={artPiecesInfo}
       onSubmitComment={onSubmitComment}
       onToggleFavourite={onToggleFavourite}
+      
     />
   );
 }

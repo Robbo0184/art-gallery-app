@@ -21,16 +21,12 @@ export default function App({ Component, pageProps }) {
     { defaultValue: [] }
   );
 
+
   if (!pieces) return;
 
-  // const [artPiecesInfo, setArtPiecesInfo] = useImmerLocalStorageState(
-  //   "art-pieces-info",
-  //   { defaultValue: [] }
-  // );
+ 
 
-  // const [artPiecesInfo, setArtPiecesInfo] = useState();
 
-  console.log(pieces);
 
   const favouritedPieces = pieces?.filter((piece, index) => {
     if (artPiecesInfo[index]?.piece_id === piece.slug) {

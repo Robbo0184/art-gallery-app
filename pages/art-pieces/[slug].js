@@ -10,6 +10,7 @@ export default function ArtPieceDetailsPage({
 }) {
   const router = useRouter();
   const { slug } = router.query;
+
   const piece = pieces.find((piece) => piece.slug === slug);
   const isFavourite = artPiecesInfo.includes(piece.slug);
 
