@@ -1,7 +1,9 @@
 import GlobalStyle from "../styles";
 import useSWR from "swr";
 import Layout from "@/components/Layout/Layout";
-import { useEffect, useState } from "react";
+// import { useEffect } from "react";
+import useLocalStorageState from "use-local-storage-state";
+
 // import { useImmerLocalStorageState } from "@/lib/useImmerLocalStorageState";
 
 const fetcher = (...args) => fetch(...args).then((res) => res.json());
@@ -9,12 +11,11 @@ const URL = "https://example-apis.vercel.app/api/art";
 
 export default function App({ Component, pageProps }) {
   const { data: pieces, error, isLoading } = useSWR(URL, fetcher);
-  // const [artPiecesInfo, setArtPiecesInfo] = useImmerLocalStorageState(
-  //   "art-pieces-info",
-  //   { defaultValue: [] }
-  // );
-  
-  const [artPiecesInfo, setArtPiecesInfo] = useState();
+
+  const [artPiecesInfo, setArtPiecesInfo] = useLocalStorageState(
+    "art-pieces-info",
+    { defaultValue: [] }
+  );
   const favouritedPieces = artPiecesInfo?.filter((piece) => piece.isFavourite);
 
   function handleSubmitComment(slug, commentText) {
@@ -43,9 +44,9 @@ export default function App({ Component, pageProps }) {
     });
   }
 
-  useEffect(() => {
-    if (pieces) setArtPiecesInfo(pieces);
-  }, [pieces]);
+  // useEffect(() => {
+  //   if (pieces) setArtPiecesInfo(pieces);
+  // }, [pieces]);
 
   function handleToggleFavourite(slug) {
     setArtPiecesInfo((artPiecesInfo) => {
@@ -56,6 +57,8 @@ export default function App({ Component, pageProps }) {
             ? { ...piece, isFavourite: !piece.isFavourite }
             : piece
         );
+      } else {
+        setArtPiecesInfo([...artPiecesInfo, { slug, isFavourite: true }]);
       }
     });
   }
