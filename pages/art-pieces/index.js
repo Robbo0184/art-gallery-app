@@ -1,4 +1,5 @@
 import ArtPieces from "@/components/ArtPieces/ArtPieces";
+
 export default function ArtPiecesPage({
   pieces,
   onToggleFavourite,
@@ -9,6 +10,7 @@ export default function ArtPiecesPage({
       pieces={pieces}
       onSubmitComment={onSubmitComment}
       onToggleFavourite={onToggleFavourite}
+      
     />
   );
 }
