@@ -17,6 +17,7 @@ export default createGlobalStyle`
     justify-content: center;
     font-family: tahoma;
     color: #340d61;
+    padding: 2rem;
     
   }
   a {

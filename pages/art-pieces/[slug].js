@@ -28,6 +28,7 @@ export default function ArtPieceDetailsPage({
       genre={piece.genre}
       isFavourite={isFavourite}
       comments={piece.comments}
+      colors={piece.colors}
     />
   );
 }

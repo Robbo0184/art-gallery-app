@@ -14,7 +14,7 @@ export default function ArtPieces({
         return (
           <StyledLi key={piece.slug}>
             <ArtPiecePreview
-              color={piece.colors.map((color) => color)}
+              colors={piece.colors.map((color) => color)}
               onSubmitComment={onSubmitComment}
               isFavourite={piece.isFavourite}
               onToggleFavourite={onToggleFavourite}
