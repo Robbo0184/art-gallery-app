@@ -1,23 +1,12 @@
-import React, { useState } from "react";
-
-export default function CommentForm({ onSubmitComment }) {
-  const [commentText, setCommentText] = useState("");
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    onSubmitComment(event);
-
-    setCommentText("");
-  };
+export default function CommentForm({ onSubmit }) {
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={onSubmit}>
       <label>Add comment:</label>
       <input
-        name="formInput"
+        name="comment"
+        required
         type="text"
-        value={commentText}
-        onChange={(e) => setCommentText(e.target.value)}
       />
       <button>Send</button>
     </form>

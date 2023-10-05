@@ -18,6 +18,8 @@ export default function App({ Component, pageProps }) {
     defaultValue: [],
   })
 
+
+
   const handleOnFavourite = (piece, isFavourite) => {
     isFavourite
       ? setFavourites(favourites.filter((slug) => slug != piece.slug))
@@ -37,13 +39,14 @@ export default function App({ Component, pageProps }) {
     <>
       <GlobalStyle />
       <h1>ART GALLERY</h1>
+      <Layout >
       <Component
         {...pageProps}
         favourites={favourites}
         pieces={pieces}
         onFavourite={handleOnFavourite}
       />
-      <Layout />
+      </Layout>
     </>
   );
 }
