@@ -13,33 +13,30 @@ const StyledArtPiece = styled.div`
 `;
 
 export default function ArtPiecePreview({
-  slug,
-  image,
-  title,
-  artist,
+  piece,
   isFavourite,
-  onToggleFavourite,
+  onFavourite
 }) {
   return (
-    <>
-      <StyledArtPiece>
-        <Link href={`/art-pieces/${slug}`}>
-          {title ? <h3>{title}</h3> : null}
-          <img
-            width={250}
-            height={250}
-            src={image}
-            alt={`artpiece is called ${title}`}
-          />
-          <p>{artist}</p>
-        </Link>
-        <FavouriteButton
-          className="favourite-button"
-          slug={slug}
-          isFavourite={isFavourite}
-          onToggleFavourite={onToggleFavourite}
+
+    <StyledArtPiece>
+      <Link href={`/art-pieces/${piece.slug}`}>
+        <h3>{piece.name}</h3>
+        <img
+          width={250}
+          height={250}
+          src={piece.imageSource}
+          alt={`artpiece is called ${piece.name}`}
         />
-      </StyledArtPiece>
-    </>
+        <p>{piece.artist}</p>
+      </Link>
+      <FavouriteButton
+
+
+        isFavourite={isFavourite}
+        onFavourite={onFavourite}
+      />
+    </StyledArtPiece>
+
   );
 }

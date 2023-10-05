@@ -4,28 +4,22 @@ export const StyledLi = styled.li`
   list-style: none;
 `;
 export default function ArtPieces({
-  onSubmitComment,
+  onFavourite,
   pieces,
-  artPiecesInfo,
-  onToggleFavourite,
+  favourites
 }) {
   return (
     <ul style={{ margin: "0 0 164px 0" }}>
       {pieces.map((piece) => {
-        const storedPiece = artPiecesInfo.find((obj) => {
-          return obj.piece_id === piece.slug;
-        });
+        console.log("Logpiece", piece);
+        const isFavourite = favourites.includes(piece.slug)
         return (
           <StyledLi key={piece.slug}>
             <ArtPiecePreview
-              colors={piece.colors.map((color) => color)}
-              onSubmitComment={onSubmitComment}
-              isFavourite={storedPiece?.isFavourite}
-              onToggleFavourite={onToggleFavourite}
-              image={piece.imageSource}
-              title={piece.name}
-              artist={piece.artist}
-              slug={piece.slug}
+              piece={piece}
+              isFavourite={isFavourite}
+              onFavourite={() => onFavourite(piece, isFavourite)}
+             
             />
           </StyledLi>
         );

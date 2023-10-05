@@ -1,15 +1,15 @@
 import { HeartIcon } from "@/public/assets/HeartIcon";
 
 export default function FavouriteButton({
-  slug,
+ 
   isFavourite,
-  onToggleFavourite,
+  onFavourite,
 }) {
   return (
     <button
-      onClick={() => {
-        onToggleFavourite(slug);
-      }}
+      onClick={
+        onFavourite
+      }
     >
       <HeartIcon fill={isFavourite ? "red" : "grey"} />
     </button>
