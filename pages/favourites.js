@@ -2,19 +2,22 @@ import ArtPieces from "@/components/ArtPieces/ArtPieces";
 import { useRouter } from "next/router";
 
 export default function FavouritesPage({
-  favouritedPieces,
-  onToggleFavourite,
-  artPiecesInfo,
+  pieces,
+  onFavourite,
+  favourites,
 }) {
-  const { query } = useRouter();
+  const favouritePieces = pieces.filter((piece => favourites.includes(piece.slug)
+  ))
+
+  if(!favouritePieces.length) return <p>No favourites to display.</p>
+
   return (
     <ul>
-      <h3>{favouritedPieces.length} piece(s) are liked.</h3>
+      <h3>{favouritePieces.length} piece(s) are liked.</h3>
       <ArtPieces
-        onToggleFavourite={onToggleFavourite}
-        pieces={favouritedPieces}
-        artPiecesInfo={artPiecesInfo}
-        slug={query.slug}
+        onFavourite={onFavourite}
+        pieces={favouritePieces}
+        favourites={favourites}
       />
     </ul>
   );
