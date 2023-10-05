@@ -1,15 +1,14 @@
 import Spotlight from "@/components/Spotlight/Spotlight";
 
-export default function SpotlightPage({ pieces, onToggleFavourite }) {
+export default function SpotlightPage({ pieces, onFavourite, favourites }) {
   const randomArt = pieces[Math.floor(Math.random() * pieces.length)];
+  const isFavourite = favourites.includes(randomArt.slug)
 
   return (
     <Spotlight
-      isFavourite={randomArt.isFavourite}
-      slug={randomArt.slug}
-      image={randomArt.imageSource}
-      artist={randomArt.artist}
-      onToggleFavourite={onToggleFavourite}
+      piece={randomArt}
+      isFavourite={isFavourite}
+      onFavourite={() => onFavourite(randomArt)}
     />
   );
 }

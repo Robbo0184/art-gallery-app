@@ -2,22 +2,18 @@ import ArtPiecePreview from "../ArtPiecePreview/ArtPiecePreview";
 
 
 export default function Spotlight({
-  image,
-  artist,
-  slug,
-  onToggleFavourite,
+  piece, 
+  onFavourite,
   isFavourite,
-  colors
+ 
 }) {
   return (
     <div>
       <ArtPiecePreview
         isFavourite={isFavourite}
-        onToggleFavourite={onToggleFavourite}
-        slug={slug}
-        image={image}
-        artist={artist}
-        colors={colors} />
+        onFavourite={onFavourite}
+        piece={piece}
+        />
     </div>
   )
 }
